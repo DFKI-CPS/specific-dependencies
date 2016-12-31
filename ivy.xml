@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+  <info organisation="net.flatmap"
+        module="specific-standalone-deps"/>
+  <dependencies>
+    <dependency org="bundle" name="org.eclipse.papyrus.sysml" rev="latest.integration"/>
+    <dependency org="bundle" name="org.eclipse.ocl.pivot.uml" rev="latest.integration"/>
+    <dependency org="bundle" name="org.eclipse.ocl.xtext.essentialocl" rev="latest.integration"/>
+
+    <exclude org="package" module="org\.(w3c|xml)\..*" matcher="regexp"/>
+    <exclude org="package" module="javax\.(xml|crypto|security).*" matcher="regexp"/>
+    <exclude org="package" module="org.apache.log4j"/>
+    <exclude org="bundle" module="org\.eclipse\.(gmf)(\..*|$)" matcher="regexp"/>
+    <exclude org="bundle" module="org\.eclipse(\.[^.]+)*(\.ui)(\.[^.]+)*" matcher="regexp"/>
+  </dependencies>
+</ivy-module>

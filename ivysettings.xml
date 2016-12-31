@@ -1,0 +1,25 @@
+<ivysettings>
+    <settings defaultResolver="eclipse" defaultLatestStrategy="latest-osgi"/>
+    <resolvers>
+        <updatesite name="eclipse-neon" url="http://ftp.gnome.org/mirror/eclipse.org/eclipse/updates/4.6/R-4.6.2-201611241400/"/>
+        <updatesite name="eclipse-papyrus" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/mdt/papyrus/updates/releases/neon/"/>
+        <updatesite name="eclipse-uml" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/mdt/uml2/updates/5.2/R201611140827/"/>
+        <updatesite name="eclipse-emf" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/emf/emf/updates/2.12/"/>
+        <updatesite name="eclipse-emf-transaction" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/emf/transaction/updates/releases/R201606071900/"/>
+        <updatesite name="eclipse-emf-validation" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/emf/validation/updates/releases/R201606071713/"/>
+        <updatesite name="eclipse-mdt" url="http://download.eclipse.org/modeling/mdt/updates/releases/"/>
+        <updatesite name="eclipse-ocl" url="http://download.eclipse.org/modeling/mdt/ocl/updates/releases/6.2.1/"/>
+        <updatesite name="eclipse-xtext" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/tmf/xtext/updates/releases/2.10.0/"/>
+
+        <osgi-agg name="eclipse">
+            <resolver ref="eclipse-neon"/>
+            <resolver ref="eclipse-papyrus"/>
+            <resolver ref="eclipse-uml"/>
+            <resolver ref="eclipse-emf"/>
+            <resolver ref="eclipse-emf-transaction"/>
+            <resolver ref="eclipse-emf-validation"/>
+            <resolver ref="eclipse-ocl"/>
+            <resolver ref="eclipse-xtext"/>
+        </osgi-agg>
+    </resolvers>
+</ivysettings>

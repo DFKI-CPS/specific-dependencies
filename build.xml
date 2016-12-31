@@ -1,0 +1,23 @@
+<project name="specific-standalone-deps" xmlns:ivy="antlib:org.apache.ivy.ant">
+  <property name="dist.dir" location="dist"/>
+  <property name="lib.dir" location="lib"/>
+
+	<target name="resolve" description="retrieve dependencies with ivy">
+		<ivy:retrieve pattern="lib/[conf]/[artifact]-[type]-[revision].[ext]"/>
+	</target>
+
+	<target name="ivy" description="Install ivy">
+		<mkdir dir="${user.home}/.ant/lib" />
+		<get dest="${user.home}/.ant/lib/ivy.jar"
+    src="http://search.maven.org/remotecontent?filepath=org/apache/ivy/ivy/2.4.0-rc1/ivy-2.4.0-rc1.jar" />
+	</target>
+
+  <target name="make-jar" depends="resolve">
+    <mkdir dir="${dist.dir}" />
+    <jar jarfile="${dist.dir}/specific-dependencies.jar">
+      <zipgroupfileset dir="${lib.dir}">
+        <include name="**/*.jar" />
+      </zipgroupfileset>
+    </jar>
+  </target>
+</project>
