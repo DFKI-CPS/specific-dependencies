@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>${ivy.pom.groupId}</groupId>
+    <artifactId>${ivy.pom.artifactId}</artifactId>
+    <packaging>${ivy.pom.packaging}</packaging>
+    <version>${ivy.pom.version}</version>
+    <name>${ivy.pom.name}</name>
+    <description>${ivy.pom.description}</description>
+    <url>${ivy.pom.url}</url>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>http://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <organization>
+        <name>${ivy.pom.groupId}</name>
+    </organization>
+</project>

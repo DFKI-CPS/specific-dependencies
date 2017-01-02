@@ -1,9 +1,9 @@
-<project name="specific-standalone-deps" xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="specific-dependencies" xmlns:ivy="antlib:org.apache.ivy.ant" default="default">
   <property name="dist.dir" location="dist"/>
   <property name="lib.dir" location="lib"/>
 
 	<target name="resolve" description="retrieve dependencies with ivy">
-		<ivy:retrieve pattern="lib/[conf]/[artifact]-[type]-[revision].[ext]"/>
+		<ivy:retrieve pattern="lib/[type]/[artifact]-[revision].jar" conf="fatjar"/>
 	</target>
 
 	<target name="ivy" description="Install ivy">
@@ -12,11 +12,21 @@
     src="http://search.maven.org/remotecontent?filepath=org/apache/ivy/ivy/2.4.0-rc1/ivy-2.4.0-rc1.jar" />
 	</target>
 
-  <target name="make-jar" depends="resolve">
+  <target name="pom" depends="resolve">
+    <ivy:makepom ivyfile="${basedir}/ivy.xml" templatefile="${basedir}/pom.xml" pomfile="${basedir}/dist/${ant.project.name}-${ivy.revision}.pom" conf="default">
+    </ivy:makepom>
+  </target>
+
+  <target name="default" depends="resolve, pom">
     <mkdir dir="${dist.dir}" />
-    <jar jarfile="${dist.dir}/specific-dependencies.jar">
+    <jar jarfile="${dist.dir}/specific-dependencies-${ivy.revision}.jar">
       <zipgroupfileset dir="${lib.dir}">
-        <include name="**/*.jar" />
+        <include name="jar/*.jar" />
+      </zipgroupfileset>
+    </jar>
+    <jar jarfile="${dist.dir}/specific-dependencies-source-${ivy.revision}.jar">
+      <zipgroupfileset dir="${lib.dir}">
+        <include name="source/*.jar" />
       </zipgroupfileset>
     </jar>
   </target>

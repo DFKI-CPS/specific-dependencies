@@ -1,6 +1,10 @@
 <ivysettings>
     <settings defaultResolver="eclipse" defaultLatestStrategy="latest-osgi"/>
     <resolvers>
+        <ibiblio name="bintray"
+                 m2compatible="true"
+                 root="http://dl.bintray.com/content/example/external-deps"/>
+
         <updatesite name="eclipse-neon" url="http://ftp.gnome.org/mirror/eclipse.org/eclipse/updates/4.6/R-4.6.2-201611241400/"/>
         <updatesite name="eclipse-papyrus" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/mdt/papyrus/updates/releases/neon/"/>
         <updatesite name="eclipse-uml" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/mdt/uml2/updates/5.2/R201611140827/"/>
