@@ -3,7 +3,10 @@
   <property name="lib.dir" location="lib"/>
 
 	<target name="resolve" description="retrieve dependencies with ivy">
-		<ivy:retrieve pattern="lib/[type]/[artifact]-[revision].jar" conf="fatjar"/>
+    <delete>
+      <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </delete>
+		<ivy:retrieve pattern="${lib.dir}/[type]/[artifact]-[revision].jar" conf="fatjar"/>
 	</target>
 
 	<target name="ivy" description="Install ivy">
