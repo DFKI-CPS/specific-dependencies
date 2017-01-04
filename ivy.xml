@@ -17,6 +17,7 @@
     <dependency org="bundle" name="org.eclipse.ocl.pivot.uml" rev="latest.integration"/>
     <dependency org="bundle" name="org.eclipse.ocl.xtext.essentialocl" rev="latest.integration"/>
 
+    <exclude org="package" module="com.ibm.icu(\.[^.]+)*" matcher="regexp"/>
     <exclude org="package" module="org\.(w3c|xml)\..*" matcher="regexp"/>
     <exclude org="package" module="javax\.(xml|crypto|security).*" matcher="regexp"/>
     <exclude org="package" module="org.apache.log4j"/>
