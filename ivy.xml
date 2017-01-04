@@ -2,7 +2,7 @@
 <ivy-module version="2.0"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
-  <info organisation="de.dfki.cps.specific"
+  <info organisation="de.dfki.cps"
         module="specific-dependencies"
         revision="4.6.0"/>
   <configurations>
@@ -10,14 +10,12 @@
   </configurations>
   <publications>
     <artifact name="specific-dependencies" conf="*"/>
-    <artifact name="specific-dependencies-sources" conf="*"/>
   </publications>
   <dependencies defaultconf="fatjar->*">
     <dependency org="bundle" name="org.eclipse.papyrus.sysml" rev="latest.integration"/>
     <dependency org="bundle" name="org.eclipse.ocl.pivot.uml" rev="latest.integration"/>
     <dependency org="bundle" name="org.eclipse.ocl.xtext.essentialocl" rev="latest.integration"/>
 
-    <exclude org="bundle" module="com.ibm.icu"/>
     <exclude org="package" module="org\.(w3c|xml)\..*" matcher="regexp"/>
     <exclude org="package" module="javax\.(xml|crypto|security).*" matcher="regexp"/>
     <exclude org="package" module="org.apache.log4j"/>

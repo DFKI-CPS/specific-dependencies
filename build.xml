@@ -12,7 +12,7 @@
 	<target name="ivy" description="Install ivy">
 		<mkdir dir="${user.home}/.ant/lib" />
 		<get dest="${user.home}/.ant/lib/ivy.jar"
-    src="http://search.maven.org/remotecontent?filepath=org/apache/ivy/ivy/2.4.0-rc1/ivy-2.4.0-rc1.jar" />
+    src="https://repo1.maven.org/maven2/org/apache/ivy/ivy/2.4.0/ivy-2.4.0.jar" />
 	</target>
 
   <target name="pom" depends="resolve">
@@ -21,16 +21,22 @@
   </target>
 
   <target name="default" depends="resolve, pom">
-    <mkdir dir="${dist.dir}" />
-    <jar update="true" excludes="icons/**/*,META-INF/**/*,com/**/*" jarfile="${dist.dir}/specific-dependencies-${ivy.revision}.jar">
-      <zipgroupfileset dir="${lib.dir}">
-        <include name="jar/*.jar"/>
-      </zipgroupfileset>
-    </jar>
-    <jar update="true" excludes="META-INF/**/*" jarfile="${dist.dir}/specific-dependencies-${ivy.revision}-sources.jar">
-      <zipgroupfileset dir="${lib.dir}">
-        <include name="source/*.jar" />
-      </zipgroupfileset>
-    </jar>
+    <mkdir dir="${dist.dir}/temp/jar"/>
+    <mkdir dir="${dist.dir}/temp/source"/>
+    <unzip dest="${dist.dir}/temp/jar">
+      <fileset dir="${lib.dir}" includes="jar/*.jar"/>
+    </unzip>
+    <unzip dest="${dist.dir}/temp/source">
+      <fileset dir="${lib.dir}" includes="source/*.jar"/>
+    </unzip>
+    <delete dir="${dist.dir}/temp/jar/META-INF"/>
+    <delete dir="${dist.dir}/temp/jar/OSGI-INF"/>
+    <delete dir="${dist.dir}/temp/source/META-INF"/>
+    <delete dir="${dist.dir}/temp/source/OSGI-INF"/>
+    <jar basedir="${dist.dir}/temp/jar"
+         jarfile="${dist.dir}/specific-dependencies-${ivy.revision}.jar"/>
+    <jar basedir="${dist.dir}/temp/source"
+         jarfile="${dist.dir}/specific-dependencies-${ivy.revision}-sources.jar"/>
+    <delete dir="${dist.dir}/temp"/>
   </target>
 </project>
