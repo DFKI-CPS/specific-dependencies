@@ -13,6 +13,7 @@
         <updatesite name="eclipse-emf-validation" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/emf/validation/updates/releases"/>
         <updatesite name="eclipse-ocl" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/mdt/ocl/updates/releases/6.2.2"/>
         <updatesite name="eclipse-xtext" url="http://ftp.gnome.org/mirror/eclipse.org/modeling/tmf/xtext/updates/releases/2.10.0"/>
+        <updatesite name="eclipse-emfatic" url="http://ftp.acc.umu.se/mirror/eclipse.org/emfatic/update/"/>
 
         <osgi-agg name="eclipse">
             <resolver ref="eclipse-neon"/>
@@ -23,6 +24,7 @@
             <resolver ref="eclipse-emf-validation"/>
             <resolver ref="eclipse-ocl"/>
             <resolver ref="eclipse-xtext"/>
+            <resolver ref="eclipse-emfatic"/>
         </osgi-agg>
     </resolvers>
 </ivysettings>
